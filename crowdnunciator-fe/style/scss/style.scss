@@ -1,0 +1,205 @@
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700|Pacifico);
+@import "vendor";
+@import "grid";
+
+$green: #016131;
+$dark-green: #002f18;
+$brown: #542501;
+
+::selection {
+	background-color: $green;
+	color: white;
+}
+
+* {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+}
+
+body {
+	font-family: 'Merriweather', sans-serif;
+	background: url("../../img/tile.png");
+	color: white;
+	margin: 0;
+}
+
+header {
+	@include column(6);
+	@include push(3);
+	background-color: $green;
+	border: 5px solid $dark-green;
+	border-top: none;
+	a {
+		img {
+			margin: 25px 75px;
+			opacity: 1;
+			&:hover {
+				opacity: 0.7;
+				@include transition;
+			}
+		}
+	}
+}
+
+.heading {
+	margin: 30px 0;
+	font-size: 1.25em;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.button {
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	float:right;
+	background-color: $green;
+	border: 2.5px solid $dark-green;
+	padding: 12px;
+	@include box-sizing(border-box);
+	text-align: center;
+	cursor: pointer;
+	&:hover {
+		background-color: $dark-green;
+		@include transition;
+	}
+}
+
+.speaker {
+	@include column(12);
+	.profile {
+		@include column(2);
+		height: 150px;
+		width: 125px; 
+	}
+	h1.name {
+		@include column(8);
+		font-size: 3em;
+	}
+	.edit {
+		@include column(2);
+		margin: 0;
+		a {
+			@extend .button;
+		}
+	}
+	h2 {
+		float:left;
+		width: 780px;
+		margin: 10px 0 10px 10px;
+	}
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	background-color: $green;
+	border-top: 2.5px solid $dark-green;
+	width: 100%;
+	p {
+		font-size: 0.8em;
+		margin: 5px 0;
+		a {
+			text-decoration: none;
+			color: white;
+			&:hover {
+				color: darken(white, 10%);
+				@include transition;
+			}
+		}
+		&.left {
+			float: left;
+		} 
+		&.right {
+			float: right;
+		}
+	}
+}
+
+// Edit page-break-inside: 
+
+.edit-speaker {
+	.select {
+		@include column(4);
+		input {
+			width: 300px;
+			font-family: 'Merriweather', sans-serif;
+			padding: 9.5px 9px;
+			font-size: 1.25em;
+			outline: 0;
+			border: 2.5px solid grey;
+			&:focus, :active {
+				border: 2.5px $dark-green solid;
+				@include transition;
+			}
+		}
+		.tt-dropdown-menu {
+			background-color: $green;
+			border: 2.5px solid $dark-green;
+			border-top: none;
+			width: 318px;
+			max-height: 300px;
+			overflow-y: auto; 
+			.tt-suggestion {
+				padding: 10px;
+				.mp {
+					height: 3em;
+					img {
+						float:left;
+						margin-right: 10px;
+						height: 40px;
+						width: 30px;
+					}
+					p {
+						margin-top: 2.5px;
+						&.name {
+							font-weight: 700;
+							text-transform: uppercase;
+						}
+					}
+				}
+				&:last-child {
+					margin-bottom: 0;
+				}
+				&:hover {
+					background-color: $dark-green;
+					@include transition;
+				}
+			}
+		}
+	}
+	.commit {
+		@include column(3);
+		a {
+			@extend .button;
+		}
+	}
+}
+
+.edit-other {
+	@include column(12);
+	margin-top: 35px;
+	a {
+		@extend .button;
+		float:left;
+		margin: 0 10px;
+	}
+}
+
+// About
+
+.about {
+	@include column(12);
+	margin-bottom: 50px;
+	h4.call {
+		margin-bottom: 1em;
+		background-color: $green;
+		border: 2.5px solid $dark-green;
+		float:left;
+		padding: 5px 9px;
+		margin-right: 600px;
+	}
+	p {
+		margin-bottom: 1em;
+	}
+}
